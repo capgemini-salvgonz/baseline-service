@@ -20,16 +20,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+/**
+ * The Class ErrorResponse.
+ */
 @Setter
 @Getter
-/**
- * Instantiates a new error response.
- *
- * @param code the code
- * @param message the message
- * @param location the location
- * @param moreInfo the more info
- */
 @AllArgsConstructor
 public class ErrorResponse {
   

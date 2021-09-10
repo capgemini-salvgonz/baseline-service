@@ -26,10 +26,10 @@ import lombok.Setter;
 public class InitialInvestmentDto {
 
   /** The initial investment. */
-  private Double initialInvestment;
+  private Float initialInvestment;
   
   /** The yearly input. */
-  private Double yearlyInput;
+  private Float yearlyInput;
   
   /** The yearly input increment. */
   private Integer yearlyInputIncrement;

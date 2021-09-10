@@ -4,7 +4,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>practicas-cloud</groupId>
-	<artifactId>baseline-service</artifactId>
+	<artifactId>baseline-service-sgn</artifactId>
 	<version>1.0.0</version>
 
 	<parent>
@@ -72,6 +72,13 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>org.codehaus.sonar-plugins.java</groupId>
+			<artifactId>sonar-jacoco-listeners</artifactId>
+			<version>3.2</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -80,6 +87,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 		</plugins>
 	</build>
 
