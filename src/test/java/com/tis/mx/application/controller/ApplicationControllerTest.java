@@ -64,7 +64,8 @@ public class ApplicationControllerTest {
   @Test
   public void shouldGenerateTableYield() {
 
-    List<InvestmentYieldDto> tableYield = controller.createTableYield(initialInvestment);
+    List<InvestmentYieldDto> tableYield = controller.createTableYield("application/json",
+        initialInvestment);
 
     assertEquals(5, tableYield.size());
     
@@ -73,8 +74,6 @@ public class ApplicationControllerTest {
     assertEquals(Double.valueOf(3000.00), firstYear.getYearlyInput());
     assertEquals(Double.valueOf(1680.00), firstYear.getInvestmentYield());
     assertEquals(Double.valueOf(9680.00), firstYear.getFinalBalance());
-    
-   
     
     
   }

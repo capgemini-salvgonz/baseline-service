@@ -1,5 +1,6 @@
 package com.tis.mx.application.service.impl;
 
+import org.springframework.stereotype.Service;
 import com.tis.mx.application.dto.InitialInvestmentDto;
 import com.tis.mx.application.dto.InvestmentYieldDto;
 import com.tis.mx.application.service.CompoundInterestCalculator;
@@ -9,42 +10,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
+@Service 
 public class CompoundInterestCalculatorImpl implements CompoundInterestCalculator {
-
-//  @Override
-//  public List<InvestmentYieldDto> createRevenueGrid(InitialInvestmentDto initialInvestmentDto) {
-//    Integer investmentYear = 0;
-//    Double initialInvestment = 0.00;
-//    Double yearlyInput = 0.00;
-//    Double investmentYield = 0.00;
-//    Double finalBalance = 0.00;
-//
-//    ArrayList<InvestmentYieldDto> investmentYieldList = new ArrayList<>();
-//    double aux = 0.00;
-//    for (int i = 0; i < initialInvestmentDto.getInvestmentYears(); i++) {
-//      investmentYear = i + 1;
-//      yearlyInput = initialInvestmentDto.getYearlyInput() + aux;
-//      aux += yearlyInput * initialInvestmentDto.getYearlyInputIncrement() / 100;
-//      aux = Math.ceil(aux);
-//
-//      if (i == 0) {
-//        initialInvestment = initialInvestmentDto.getInitialInvestment();
-//      } else if (i > 0) {
-//        initialInvestment = finalBalance;
-//      }
-//
-//      investmentYield =
-//          (initialInvestment + yearlyInput) * initialInvestmentDto.getInvestmentYield();
-//      finalBalance = initialInvestment + yearlyInput + investmentYield;
-//      investmentYieldList.add(new InvestmentYieldDto(investmentYear, initialInvestment, yearlyInput,
-//          investmentYield, finalBalance));
-//    }
-//
-//    return investmentYieldList;
-//  }
   
-  @Override
+  @Override 
   public List<InvestmentYieldDto> createRevenueGrid(InitialInvestmentDto initialInvestmentDto) {
     List<InvestmentYieldDto> investmentYieldDtos = new ArrayList<>();
     List<InvestmentYieldDto> aux = Stream.generate(InvestmentYieldDto::new)
