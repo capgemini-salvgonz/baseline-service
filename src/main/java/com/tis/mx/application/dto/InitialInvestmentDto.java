@@ -17,7 +17,7 @@ package com.tis.mx.application.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-
+ 
 /**
  * The Class InitialInvestmentDto.
  */

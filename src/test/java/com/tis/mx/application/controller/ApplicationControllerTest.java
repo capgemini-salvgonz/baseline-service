@@ -73,6 +73,10 @@ public class ApplicationControllerTest {
     assertEquals(Double.valueOf(3000.00), firstYear.getYearlyInput());
     assertEquals(Double.valueOf(1680.00), firstYear.getInvestmentYield());
     assertEquals(Double.valueOf(9680.00), firstYear.getFinalBalance());
+    
+   
+    
+    
   }
 
 }
