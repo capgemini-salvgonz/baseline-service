@@ -16,13 +16,13 @@
 package com.tis.mx.application.controller;
 
 import static org.junit.Assert.assertEquals;
-
+import org.junit.Before;
+import org.junit.Test;
 import com.tis.mx.application.dto.InitialInvestmentDto;
 import com.tis.mx.application.dto.InvestmentYieldDto;
 import com.tis.mx.application.service.CompoundInterestCalculator;
+import com.tis.mx.application.service.impl.CalculadoraDosImpl;
 import com.tis.mx.application.service.impl.CompoundInterestCalculatorImpl;
-import org.junit.Before;
-import org.junit.Test;
 import java.util.List;
 
 /**
@@ -45,7 +45,10 @@ public class ApplicationControllerTest {
   @Before
   public void createValuesBeforeToTest() {
     // Crear una calculadora
-    this.calculator = new CompoundInterestCalculatorImpl();
+    
+    //this.calculator = new CompoundInterestCalculatorImpl();
+    this.calculator = new CalculadoraDosImpl();
+    
     this.controller = new ApplicationController(this.calculator);
 
     // Crear los valores iniciales de la inversion
@@ -90,7 +93,7 @@ public class ApplicationControllerTest {
     
     try {
       controller.createTableYield("application/json", badInputRequest);      
-    }catch(Exception ex) {
+    } catch(Exception ex) {
       assertEquals("El cálculo no puede ser ejecutado", ex.getMessage());
     }
     
