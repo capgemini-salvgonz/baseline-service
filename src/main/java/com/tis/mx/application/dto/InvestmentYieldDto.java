@@ -15,7 +15,6 @@
 
 package com.tis.mx.application.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +24,6 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class InvestmentYieldDto {
   
@@ -33,14 +31,14 @@ public class InvestmentYieldDto {
   private Integer investmentYear;
   
   /** The initial investment. */
-  private Double initialInvestment;
+  private Float initialInvestment;
   
   /** The yearly input. */
-  private Double yearlyInput;
+  private Float yearlyInput;
   
   /** The investment yield. */
-  private Double investmentYield;
+  private Float investmentYield;
   
   /** The final balance. */
-  private Double finalBalance;
+  private Float finalBalance;
 }

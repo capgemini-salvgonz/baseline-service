@@ -20,9 +20,7 @@ package com.tis.mx.application.controller;
  */
 public class CalculatorInputException extends RuntimeException {
 
-  /**
-   * serialVersionUID
-   */
+  /** The Constant serialVersionUID. */
   private static final long serialVersionUID = -6506558049330575989L;
 
   /**
