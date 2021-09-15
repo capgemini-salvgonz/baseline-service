@@ -15,6 +15,7 @@
 
 package com.tis.mx.application.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.tis.mx.application.dto.InitialInvestmentDto;
 import com.tis.mx.application.dto.InvestmentYieldDto;
 import com.tis.mx.application.service.CompoundInterestCalculator;
@@ -37,9 +38,10 @@ public class CompoundInterestCalculatorImpl implements CompoundInterestCalculato
    * @return the list
    */
   @Override
+  @HystrixCommand(commandKey = "createRevenueGrid", fallbackMethod = "fallbackRevenueGrid")
   public List<InvestmentYieldDto> createRevenueGrid(InitialInvestmentDto initialInvestmentDto) {
     
-    List<InvestmentYieldDto> tableYield = new ArrayList<>();
+    List<InvestmentYieldDto> tableYield = new ArrayList<>(); 
     
     for (int year = 0; year < initialInvestmentDto.getInvestmentYears(); year++) { 
       tableYield.add(
@@ -48,6 +50,18 @@ public class CompoundInterestCalculatorImpl implements CompoundInterestCalculato
     }
     
     return tableYield; 
+  }
+  
+  
+  /**
+   * Fallback revenue grid.
+   *
+   * @param initialInvestmentDto the initial investment dto
+   * @return the list
+   */
+  public List<InvestmentYieldDto> fallbackRevenueGrid(InitialInvestmentDto initialInvestmentDto) {
+    
+    return null;
   }
   
   
