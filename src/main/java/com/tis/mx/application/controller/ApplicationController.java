@@ -15,6 +15,7 @@
 
 package com.tis.mx.application.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -23,11 +24,14 @@ import com.tis.mx.application.dto.InitialInvestmentDto;
 import com.tis.mx.application.dto.InvestmentYieldDto;
 import com.tis.mx.application.service.CompoundInterestCalculator;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The Class ApplicationController.
  */
 @RestController
+@CrossOrigin
+@Slf4j
 public class ApplicationController {
 
   /** The calculator. */
@@ -52,6 +56,8 @@ public class ApplicationController {
   public List<InvestmentYieldDto> createTableYield(
       @RequestHeader(value = "Content-Type", required = false) String contentType,
       @RequestBody InitialInvestmentDto initialInvestment) {
+    
+    log.info(initialInvestment.toString());
 
     if (calculator.validateInput(initialInvestment)) {
       return calculator.createRevenueGrid(initialInvestment);
